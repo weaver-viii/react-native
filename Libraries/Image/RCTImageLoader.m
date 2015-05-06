@@ -65,7 +65,8 @@ NSError *errorWithMessage(NSString *message)
           // doesn't spike the memory up during the process.
           @autoreleasepool {
             ALAssetRepresentation *representation = [asset defaultRepresentation];
-            ALAssetOrientation orientation = [representation orientation];
+            // TODO(cp): Why would we want to maintain the original orientation?
+            ALAssetOrientation orientation = ALAssetOrientationUp;
             UIImage *image;
 
             if( [rep isEqualToString:@"screen"] ){
